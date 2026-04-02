@@ -106,6 +106,20 @@ nav.sc{box-shadow:0 4px 24px rgba(0,0,0,.1)}
 /* SPLIT */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .split img{width:100%;height:480px;object-fit:cover}
+/* ABOUT CAROUSEL */
+.about-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.about-carousel{position:relative}
+.about-carousel-wrap{overflow:hidden;width:100%;border-radius:2px}
+.about-carousel-track{display:flex;transition:transform .45s ease}
+.about-slide{min-width:100%;flex:0 0 100%}
+.about-slide img{width:100%;height:520px;object-fit:cover;display:block}
+.about-carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(26,74,50,.92);color:#fff;border:none;width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:22px;transition:background .2s ease,transform .2s ease;z-index:5}
+.about-carousel-btn:hover{background:var(--gold);color:var(--green)}
+.about-carousel-btn.prev{left:14px}
+.about-carousel-btn.next{right:14px}
+.about-carousel-dots{display:flex;justify-content:center;gap:10px;margin-top:18px}
+.about-dot{width:10px;height:10px;border-radius:50%;border:none;background:rgba(26,74,50,.2);cursor:pointer;transition:background .2s ease,transform .2s ease}
+.about-dot.active{background:var(--gold);transform:scale(1.15)}
 /* STAT STRIP */
 .sstrip{background:var(--green)}
 .sstrip-in{display:grid;grid-template-columns:repeat(4,1fr)}
@@ -173,11 +187,13 @@ footer{background:#0e2a1c;padding:72px 0 0}
   .nl{height:auto;padding:12px 0;width:100%}
   .ni::after,.dd,.nl svg{display:none}
   .nav-acts{margin-left:0;width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-top:10px}
-  .split,.g3,.g2,.ft,.sstrip-in,.prog-grid,.ad-steps{grid-template-columns:1fr}
+  .split,.g3,.g2,.ft,.sstrip-in,.prog-grid,.ad-steps,.about-layout{grid-template-columns:1fr}
   .photo-strip{grid-template-columns:repeat(2,1fr)}
   .hero-stats{gap:20px}
   .hstat{border:none;margin:0;padding:0}
   .wrap,.nav-in{padding:0 22px}
+  .about-slide img{height:320px}
+  .about-carousel-btn{width:38px;height:38px;font-size:18px}
 }
 @media(min-width:961px){.floating-apply{display:none}}
 </style>
@@ -381,7 +397,7 @@ footer{background:#0e2a1c;padding:72px 0 0}
 </section>
 
 <section class="sec">
-  <div class="wrap split">
+  <div class="wrap about-layout">
     <div class="reveal">
       <div class="lbl">About GHA</div>
       <h2 class="h2">Rwanda's Most <em>Celebrated School</em></h2>
@@ -392,7 +408,34 @@ footer{background:#0e2a1c;padding:72px 0 0}
         <a href="admissions.html" class="btn btn-o">Admissions</a>
       </div>
     </div>
-    <img class="reveal" src="https://raw.githubusercontent.com/Johnredcorn250/Greenhills-Academy-/main/images/gha-students.jpg" alt="GHA Students">
+
+    <div class="about-carousel reveal">
+      <button class="about-carousel-btn prev" id="aboutPrev" aria-label="Previous image">&#10094;</button>
+      <div class="about-carousel-wrap">
+        <div class="about-carousel-track" id="aboutCarouselTrack">
+          <div class="about-slide"><img src="images/ghacarousel1.jpg" alt="Green Hills Academy carousel image 1"></div>
+          <div class="about-slide"><img src="images/ghacarousel2.jpg" alt="Green Hills Academy carousel image 2"></div>
+          <div class="about-slide"><img src="images/ghacarousel3.jpg" alt="Green Hills Academy carousel image 3"></div>
+          <div class="about-slide"><img src="images/ghacarousel4.jpg" alt="Green Hills Academy carousel image 4"></div>
+          <div class="about-slide"><img src="images/ghacarousel5.jpg" alt="Green Hills Academy carousel image 5"></div>
+          <div class="about-slide"><img src="images/ghacarousel6.jpg" alt="Green Hills Academy carousel image 6"></div>
+          <div class="about-slide"><img src="images/ghacarousel7.jpg" alt="Green Hills Academy carousel image 7"></div>
+          <div class="about-slide"><img src="images/ghacarousel8.jpg" alt="Green Hills Academy carousel image 8"></div>
+        </div>
+      </div>
+      <button class="about-carousel-btn next" id="aboutNext" aria-label="Next image">&#10095;</button>
+
+      <div class="about-carousel-dots" id="aboutCarouselDots">
+        <button class="about-dot active" data-index="0"></button>
+        <button class="about-dot" data-index="1"></button>
+        <button class="about-dot" data-index="2"></button>
+        <button class="about-dot" data-index="3"></button>
+        <button class="about-dot" data-index="4"></button>
+        <button class="about-dot" data-index="5"></button>
+        <button class="about-dot" data-index="6"></button>
+        <button class="about-dot" data-index="7"></button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -542,6 +585,44 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 revealEls.forEach(el => io.observe(el));
+
+const aboutTrack = document.getElementById('aboutCarouselTrack');
+const aboutSlides = document.querySelectorAll('.about-slide');
+const aboutPrev = document.getElementById('aboutPrev');
+const aboutNext = document.getElementById('aboutNext');
+const aboutDots = document.querySelectorAll('#aboutCarouselDots .about-dot');
+let aboutIndex = 0;
+
+function updateAboutCarousel(index){
+  if (!aboutTrack) return;
+  aboutTrack.style.transform = `translateX(-${index * 100}%)`;
+  aboutDots.forEach(dot => dot.classList.remove('active'));
+  if (aboutDots[index]) aboutDots[index].classList.add('active');
+}
+
+if (aboutPrev && aboutNext && aboutTrack) {
+  aboutPrev.addEventListener('click', () => {
+    aboutIndex = (aboutIndex - 1 + aboutSlides.length) % aboutSlides.length;
+    updateAboutCarousel(aboutIndex);
+  });
+
+  aboutNext.addEventListener('click', () => {
+    aboutIndex = (aboutIndex + 1) % aboutSlides.length;
+    updateAboutCarousel(aboutIndex);
+  });
+
+  aboutDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      aboutIndex = Number(dot.dataset.index);
+      updateAboutCarousel(aboutIndex);
+    });
+  });
+
+  setInterval(() => {
+    aboutIndex = (aboutIndex + 1) % aboutSlides.length;
+    updateAboutCarousel(aboutIndex);
+  }, 4500);
+}
 </script>
 </body>
 </html>
