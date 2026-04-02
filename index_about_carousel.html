@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Hills Academy | IB World School | Kigali, Rwanda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#1a4a32;--mid:#236040;--light:#2e7a52;--pale:#e8f2ec;--gold:#c8992c;--gold-lt:#e4b84a;--gold-pale:#fdf6e3;--white:#fff;--off:#f7f6f3;--ink:#1a1a18;--ink-m:#3a3a36;--ink-s:#6a6a64;--bdr:#e0ddd6;--nh:76px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;color:var(--ink);background:var(--white);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.serif{font-family:'Playfair Display',serif}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.sec{padding:88px 0}
+.lbl{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.lbl::before{content:'';width:28px;height:2px;background:var(--gold);flex-shrink:0}
+.h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,48px);font-weight:600;line-height:1.1;color:var(--green)}
+.h2 em{font-style:italic;color:var(--light)}
+.lead{font-size:16px;line-height:1.85;color:var(--ink-s)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:13px 26px;border-radius:2px;cursor:pointer;transition:all .22s ease}
+.btn-g{background:var(--green);color:#fff}.btn-g:hover{background:var(--mid);transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:var(--green)}.btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--green);border:1.5px solid var(--green)}.btn-o:hover{background:var(--green);color:#fff}
+.btn-ow{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}.btn-ow:hover{border-color:var(--gold-lt);color:var(--gold-lt)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}.reveal.in{opacity:1;transform:none}
+/* TOPBAR */
+.topbar{background:var(--green);color:rgba(255,255,255,.65);font-size:12px;padding:0 40px;height:34px;display:flex;align-items:center;justify-content:space-between}
+.topbar a{color:rgba(255,255,255,.6);transition:color .2s}.topbar a:hover{color:var(--gold-lt)}
+.tb-l,.tb-r{display:flex;gap:22px;align-items:center}
+.tb-div{width:1px;height:12px;background:rgba(255,255,255,.2)}
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:#fff;height:var(--nh);box-shadow:0 1px 0 var(--bdr);transition:box-shadow .3s}
+nav.sc{box-shadow:0 4px 24px rgba(0,0,0,.1)}
+.nav-in{width:100%;max-width:1240px;margin:0 auto;padding:0 40px;display:flex;align-items:center;position:relative}
+.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;margin-right:36px}
+.nav-logo img{width:50px;height:50px;border-radius:50%;object-fit:cover}
+.nav-logo-t{display:flex;flex-direction:column;line-height:1.15}
+.nav-logo-t strong{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--green)}
+.nav-logo-t span{font-size:10px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink-s)}
+.nav-shell{display:flex;align-items:center;flex:1}
+.nav-links{display:flex;align-items:center;flex:1}
+.ni{position:relative}
+.nl{display:flex;align-items:center;gap:4px;font-size:13px;font-weight:600;color:var(--ink-m);padding:0 14px;height:var(--nh);white-space:nowrap;transition:color .2s}
+.nl:hover,.ni:hover .nl{color:var(--green)}
+.nl svg{width:10px;height:10px;fill:none;stroke:currentColor;stroke-width:2.5;transition:transform .2s}
+.ni:hover .nl svg{transform:rotate(180deg)}
+.ni::after{content:'';position:absolute;bottom:0;left:14px;right:14px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.ni:hover::after{transform:scaleX(1)}
+.dd{position:absolute;top:calc(var(--nh) - 2px);left:0;background:#fff;min-width:230px;box-shadow:0 8px 32px rgba(0,0,0,.12);border-top:2px solid var(--gold);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;z-index:300}
+.ni:hover .dd{opacity:1;visibility:visible;transform:none}
+.dd a{display:block;font-size:13px;font-weight:500;color:var(--ink-m);padding:10px 18px;border-bottom:1px solid var(--bdr);transition:background .15s,color .15s,padding-left .15s}
+.dd a:last-child{border:none}.dd a:hover{background:var(--pale);color:var(--green);padding-left:24px}
+.nav-acts{display:flex;align-items:center;gap:12px;margin-left:auto}
+.na-portal{font-size:12px;font-weight:600;color:var(--green);letter-spacing:.5px}
+.na-apply{background:var(--gold);color:var(--green);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:9px 18px;border-radius:2px;transition:background .2s}
+.na-apply:hover{background:var(--gold-lt)}
+.menu-toggle{display:none;margin-left:auto;background:none;border:none;cursor:pointer;width:42px;height:42px;position:relative}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--green);margin:5px auto;transition:.25s ease}
+/* HERO */
+.hero{min-height:92vh;background:linear-gradient(135deg,#0d2e1d 0%,#1a4a32 55%,#236040 100%);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(13,46,29,0.6), rgba(13,46,29,0.9));z-index:1;}
+.hero-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(255,255,255,.02) 80px,rgba(255,255,255,.02) 81px),repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(255,255,255,.02) 80px,rgba(255,255,255,.02) 81px)}
+.hero-content{position:relative;z-index:2;padding:80px 0 72px;color:#fff}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(200,153,44,.35);background:rgba(200,153,44,.1);padding:6px 14px;border-radius:1px;margin-bottom:20px}
+.hero-tag span{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-lt)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,5.5vw,78px);font-weight:700;line-height:1.05;margin-bottom:24px;max-width:760px}
+.hero h1 em{font-style:italic;color:var(--gold-lt)}
+.hero-lead{font-size:18px;line-height:1.75;color:rgba(255,255,255,.75);max-width:620px;margin-bottom:40px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px}
+.hero-stats{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid rgba(255,255,255,.1);padding-top:36px}
+.hstat{padding-right:40px;margin-right:40px;border-right:1px solid rgba(255,255,255,.1)}
+.hstat:last-child{border:none;padding:0;margin:0}
+.hstat-n{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--gold-lt);line-height:1;display:block;margin-bottom:4px}
+.hstat-l{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+/* STRIP */
+.badge-strip{background:var(--green);padding:20px 0;border-top:1px solid rgba(255,255,255,.08)}
+.badge-strip-in{display:flex;align-items:center;gap:40px;justify-content:center;flex-wrap:wrap}
+.badge{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.55);font-size:12px;font-weight:600;letter-spacing:.5px}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+/* ADMISSIONS STEPS */
+.ad-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.ad-step{background:#fff;padding:30px 26px;border:1px solid var(--bdr)}
+.ad-step span{display:inline-block;font-family:'Playfair Display',serif;font-size:28px;color:var(--gold);margin-bottom:12px}
+.ad-step h3{font-family:'Playfair Display',serif;color:var(--green);font-size:22px;margin-bottom:8px}
+.ad-step p{color:var(--ink-s);font-size:14px;line-height:1.7}
+/* NEWS CARDS */
+.card-grid{display:grid;gap:2px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card-link{text-decoration:none;color:inherit;display:block}
+.card{background:#fff;overflow:hidden;transition:box-shadow .25s,transform .25s;display:flex;flex-direction:column}
+.card:hover,.card-link:hover .card{box-shadow:0 8px 36px rgba(0,0,0,.1);transform:translateY(-3px)}
+.card-img{height:220px;object-fit:cover;width:100%}
+.card-body{padding:24px 26px 28px;flex:1;display:flex;flex-direction:column}
+.card-cat{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
+.card-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--green);margin-bottom:10px;line-height:1.3}
+.card-text{font-size:13.5px;line-height:1.7;color:var(--ink-s);margin-bottom:16px;flex:1}
+.card-date{font-size:11px;color:var(--ink-s);letter-spacing:.5px}
+.read-more{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+/* SPLIT */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.split img{width:100%;height:480px;object-fit:cover}
+/* ABOUT CAROUSEL */
+.about-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.about-carousel{position:relative}
+.about-carousel-wrap{overflow:hidden;width:100%;border-radius:2px}
+.about-carousel-track{display:flex;transition:transform .45s ease}
+.about-slide{min-width:100%;flex:0 0 100%}
+.about-slide img{width:100%;height:520px;object-fit:cover;display:block}
+.about-carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(26,74,50,.92);color:#fff;border:none;width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:22px;transition:background .2s ease,transform .2s ease;z-index:5}
+.about-carousel-btn:hover{background:var(--gold);color:var(--green)}
+.about-carousel-btn.prev{left:14px}
+.about-carousel-btn.next{right:14px}
+.about-carousel-dots{display:flex;justify-content:center;gap:10px;margin-top:18px}
+.about-dot{width:10px;height:10px;border-radius:50%;border:none;background:rgba(26,74,50,.2);cursor:pointer;transition:background .2s ease,transform .2s ease}
+.about-dot.active{background:var(--gold);transform:scale(1.15)}
+/* STAT STRIP */
+.sstrip{background:var(--green)}
+.sstrip-in{display:grid;grid-template-columns:repeat(4,1fr)}
+.sbox{padding:44px 32px;border-right:1px solid rgba(255,255,255,.1);text-align:center}
+.sbox:last-child{border:none}
+.snum{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--gold-lt);line-height:1;display:block;margin-bottom:4px}
+.ssub{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45);display:block}
+/* PROG GRID */
+.prog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.prog-card{padding:44px 32px;background:var(--pale);transition:background .2s}
+.prog-card:hover{background:var(--green)}
+.prog-card:hover .pc-title,.prog-card:hover .pc-text{color:#fff}
+.prog-card:hover .pc-ages{background:rgba(200,153,44,.3);color:var(--gold-lt)}
+.prog-card:hover .pc-link{color:var(--gold-lt)}
+.pc-icon{font-size:32px;margin-bottom:20px;display:block}
+.pc-ages{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:rgba(26,74,50,.08);color:var(--green);padding:4px 10px;border-radius:1px;margin-bottom:14px}
+.pc-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--green);margin-bottom:10px;display:block;transition:color .2s}
+.pc-text{font-size:13.5px;color:var(--ink-s);line-height:1.7;margin-bottom:20px;transition:color .2s}
+.pc-link{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);transition:color .2s}
+/* QUOTE */
+.qblock{background:var(--green);padding:80px 0;text-align:center;position:relative;overflow:hidden}
+.qblock::before{content:'"';position:absolute;font-family:'Playfair Display',serif;font-size:320px;font-weight:900;color:rgba(255,255,255,.03);top:-40px;left:40px;line-height:1}
+.qt{font-family:'Playfair Display',serif;font-size:clamp(22px,2.8vw,34px);font-style:italic;font-weight:400;color:#fff;max-width:760px;margin:0 auto 20px;line-height:1.5;position:relative;z-index:1}
+.qa{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+/* FSTRIP */
+.fstrip{display:flex;border-top:1px solid var(--bdr)}
+.fbox{flex:1;padding:36px 28px;border-right:1px solid var(--bdr);transition:background .2s}
+.fbox:last-child{border:none}
+.fbox:hover{background:var(--pale)}
+.fbox-icon{font-size:28px;display:block;margin-bottom:12px}
+.fbox-title{font-size:16px;font-weight:600;color:var(--green);margin-bottom:8px}
+.fbox-text{font-size:13px;color:var(--ink-s);line-height:1.65}
+/* CTA BAND */
+.cta-band{background:var(--pale);padding:64px 0}
+.cta-band-in{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
+/* PHOTO STRIP */
+.photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.photo-strip img{width:100%;height:220px;object-fit:cover}
+/* FOOTER */
+footer{background:#0e2a1c;padding:72px 0 0}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:56px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:36px}
+.fl img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(200,153,44,.35);margin-bottom:14px}
+.fl-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:#fff;display:block;margin-bottom:12px}
+.fl-tag{font-size:13px;color:rgba(255,255,255,.38);line-height:1.75;max-width:260px;margin-bottom:20px}
+.fl-ct{font-size:12.5px;color:rgba(255,255,255,.4);line-height:1.9}
+.fl-ct a{color:rgba(255,255,255,.5)}.fl-ct a:hover{color:var(--gold-lt)}
+.fc h4{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.fc ul{display:flex;flex-direction:column;gap:7px}
+.fc a{font-size:13px;color:rgba(255,255,255,.42);display:block;transition:color .2s,padding-left .2s}
+.fc a:hover{color:var(--gold-lt);padding-left:4px}
+.fb{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-bottom:36px}
+.fb p{font-size:11px;color:rgba(255,255,255,.22)}
+.fso{display:flex;gap:16px}
+.fso a{font-size:11px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.3);text-transform:uppercase;transition:color .2s}
+.fso a:hover{color:var(--gold-lt)}
+.fleg{display:flex;gap:18px}
+.fleg a{font-size:11px;color:rgba(255,255,255,.22)}
+.floating-apply{position:fixed;right:18px;bottom:18px;z-index:500;background:var(--gold);color:var(--green);padding:12px 18px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+@media(max-width:960px){
+  .topbar{display:none}
+  .menu-toggle{display:block}
+  .nav-shell{position:absolute;top:var(--nh);left:0;right:0;background:#fff;border-top:1px solid var(--bdr);box-shadow:0 10px 30px rgba(0,0,0,.08);padding:18px 24px 22px;display:none;flex-direction:column;align-items:flex-start;gap:14px}
+  .nav-shell.open{display:flex}
+  .nav-links{display:flex !important;flex-direction:column;width:100%;align-items:flex-start;gap:2px}
+  .nl{height:auto;padding:12px 0;width:100%}
+  .ni::after,.dd,.nl svg{display:none}
+  .nav-acts{margin-left:0;width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-top:10px}
+  .split,.g3,.g2,.ft,.sstrip-in,.prog-grid,.ad-steps,.about-layout{grid-template-columns:1fr}
+  .photo-strip{grid-template-columns:repeat(2,1fr)}
+  .hero-stats{gap:20px}
+  .hstat{border:none;margin:0;padding:0}
+  .wrap,.nav-in{padding:0 22px}
+  .about-slide img{height:320px}
+  .about-carousel-btn{width:38px;height:38px;font-size:18px}
+}
+@media(min-width:961px){.floating-apply{display:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="tb-l">
+    <a href="tel:+250735832348">📞 +250 735 832 348</a>
+    <div class="tb-div"></div>
+    <a href="mailto:info@greenhillsacademy.rw">✉ info@greenhillsacademy.rw</a>
+    <div class="tb-div"></div>
+    <span>KG 278 St, Nyarutarama, Kigali</span>
+  </div>
+  <div class="tb-r">
+    <a href="#">Parent Portal</a>
+    <div class="tb-div"></div>
+    <a href="#">Staff Login</a>
+  </div>
+</div>
+
+<nav id="mn">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">
+      <img src="images/ghalogo.jpg" alt="GHA Logo">
+      <div class="nav-logo-t">
+        <strong>Green Hills Academy</strong>
+        <span>IB World School · Kigali</span>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-shell" id="navShell">
+      <ul class="nav-links">
+        <li class="ni"><a href="about.html" class="nl">About GHA <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dd">
+            <a href="about.html#intro">Introduction</a>
+            <a href="about.html#welcome">Director's Welcome</a>
+            <a href="about.html#mission">Mission &amp; Values</a>
+            <a href="about.html#history">Our History</a>
+            <a href="about.html#campus">Campus &amp; Facilities</a>
+            <a href="about.html#accreditations">Accreditations</a>
+          </div>
+        </li>
+        <li class="ni"><a href="academic.html" class="nl">Academic <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dd">
+            <a href="academic.html#pyp">PYP — Primary Years</a>
+            <a href="academic.html#myp">MYP — Middle Years</a>
+            <a href="academic.html#dp">DP — Diploma Programme</a>
+            <a href="academic.html#cp">CP — Career-related</a>
+            <a href="academic.html#languages">Languages Programme</a>
+            <a href="academic.html#university">University Counselling</a>
+          </div>
+        </li>
+        <li class="ni"><a href="school-life.html" class="nl">School Life <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dd">
+            <a href="school-life.html#sports">Sports &amp; Athletics</a>
+            <a href="school-life.html#arts">Arts &amp; Performing Arts</a>
+            <a href="school-life.html#dance">African Dance &amp; Culture</a>
+            <a href="school-life.html#clubs">Clubs &amp; Activities</a>
+            <a href="school-life.html#boarding">Boarding</a>
+            <a href="school-life.html#leadership">Student Leadership</a>
+          </div>
+        </li>
+        <li class="ni"><a href="admissions.html" class="nl">Admissions <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dd">
+            <a href="admissions.html#apply">How to Apply</a>
+            <a href="admissions.html#fees">Tuition &amp; Fees</a>
+            <a href="admissions.html#opendays">Open Days</a>
+            <a href="admissions.html#international">International Families</a>
+            <a href="admissions.html#faqs">FAQs</a>
+          </div>
+        </li>
+        <li class="ni"><a href="news.html" class="nl">News &amp; Events</a></li>
+      </ul>
+      <div class="nav-acts">
+        <a href="#" class="na-portal">Parent Portal</a>
+        <a href="https://greenhillsacademy.openapply.com" class="na-apply" target="_blank">Apply Now</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="videos/ghaherovideo.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-pattern"></div>
+
+  <div class="wrap hero-content">
+    <div class="hero-tag"><span>IB World School · Kigali, Rwanda · Est. 1997</span></div>
+    <h1>Where Curious Minds<br>Become <em>Global Leaders</em></h1>
+    <p class="hero-lead">Rwanda's only full-continuum IB World School. From Nursery to Grade 12 — one inspiring campus, 2,200+ learners, 60+ nationalities.</p>
+    <div class="hero-ctas">
+      <a href="https://greenhillsacademy.openapply.com" class="btn btn-gold" target="_blank">Apply for 2025–26</a>
+      <a href="admissions.html#opendays" class="btn btn-ow">Book a Visit</a>
+      <a href="about.html" class="btn btn-ow">Discover GHA</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n">1997</span><span class="hstat-l">Year Founded</span></div>
+      <div class="hstat"><span class="hstat-n">2,200+</span><span class="hstat-l">Learners</span></div>
+      <div class="hstat"><span class="hstat-n">60+</span><span class="hstat-l">Nationalities</span></div>
+      <div class="hstat"><span class="hstat-n">26 ac</span><span class="hstat-l">Campus</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="badge-strip">
+  <div class="badge-strip-in">
+    <div class="badge"><div class="badge-dot"></div>IB World School</div>
+    <div class="badge"><div class="badge-dot"></div>NEASC Accredited</div>
+    <div class="badge"><div class="badge-dot"></div>Label France Éducation</div>
+    <div class="badge"><div class="badge-dot"></div>Round Square</div>
+    <div class="badge"><div class="badge-dot"></div>PYP · MYP · DP · CP</div>
+  </div>
+</div>
+
+<section class="sec" style="background:var(--off);">
+  <div class="wrap">
+    <div class="reveal" style="max-width:760px;margin-bottom:34px;">
+      <div class="lbl">Admissions Journey</div>
+      <h2 class="h2">A clear path to <em>joining GHA</em></h2>
+      <p class="lead">We’ve designed our admissions process to be simple, welcoming and transparent for both local and international families.</p>
+    </div>
+    <div class="ad-steps reveal">
+      <div class="ad-step"><span>01</span><h3>Enquire</h3><p>Share your interest and connect with our admissions team.</p></div>
+      <div class="ad-step"><span>02</span><h3>Visit</h3><p>Book a campus visit or attend an open day to experience GHA.</p></div>
+      <div class="ad-step"><span>03</span><h3>Apply</h3><p>Submit your application with the required academic documents.</p></div>
+      <div class="ad-step"><span>04</span><h3>Join Us</h3><p>Receive an offer and prepare for a confident start at Green Hills Academy.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="reveal" style="display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:26px;">
+      <div>
+        <div class="lbl">Latest from GHA</div>
+        <h2 class="h2">News &amp; Stories</h2>
+      </div>
+      <a href="news.html" class="btn btn-o">All News</a>
+    </div>
+
+    <div class="card-grid g3 reveal">
+      <a href="https://www.newtimes.co.rw/article/33650/news/education/photos-first-lady-attends-green-hills-academy-cultural-festival" target="_blank" class="card-link">
+        <article class="card">
+          <img class="card-img" src="images/ikivi.jpg" alt="GHA Rwanda Festival IKIVI">
+          <div class="card-body">
+            <span class="card-cat">Culture & Community</span>
+            <h3 class="card-title">GHA Hosted Rwanda Festival “IKIVI” 2026</h3>
+            <p class="card-text">
+              Green Hills Academy hosted its first ever Rwanda Festival “IKIVI,” celebrating culture, music and dance. The event gained national attention, including attendance by First Lady Jeannette Kagame.
+            </p>
+            <div class="card-date">February 2026</div>
+          </div>
+        </article>
+      </a>
+
+      <a href="https://x.com/SolidAfrica/status/2036050424239653187" target="_blank" class="card-link">
+        <article class="card">
+          <img class="card-img" src="images/outreachsolidafrica.jpg" alt="GHA x Solid Africa">
+          <div class="card-body">
+            <span class="card-cat">Volunteering</span>
+            <h3 class="card-title">GHA students volunteering in providing meal services to hospital patients</h3>
+            <p class="card-text">
+              In partnership with Solid Africa, our students volunteered their time to help provide meal services to hospital patients and donated basic necessities like soaps, sanitary products, clothes and more to offer support.
+            </p>
+            <div class="card-date">March 2026</div>
+          </div>
+        </article>
+      </a>
+
+      <a href="https://x.com/GHA_rwanda/status/2030545888435659081" target="_blank" class="card-link">
+        <article class="card">
+          <img class="card-img" src="images/iwd.jpg" alt="International Women's Day at GHA">
+          <div class="card-body">
+            <span class="card-cat">School Life</span>
+            <h3 class="card-title">GHA Marks International Women’s Day 2026</h3>
+            <p class="card-text">
+              The school community celebrated International Women’s Day, recognizing the achievements and impact of women across GHA and beyond.
+            </p>
+            <div class="card-date">March 2026</div>
+          </div>
+        </article>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sstrip">
+  <div class="wrap sstrip-in">
+    <div class="sbox"><span class="snum">2,200+</span><span class="ssub">Learners on Campus</span></div>
+    <div class="sbox"><span class="snum">60+</span><span class="ssub">Nationalities</span></div>
+    <div class="sbox"><span class="snum">26</span><span class="ssub">Acre Campus</span></div>
+    <div class="sbox"><span class="snum">27</span><span class="ssub">Years of Excellence</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap about-layout">
+    <div class="reveal">
+      <div class="lbl">About GHA</div>
+      <h2 class="h2">Rwanda's Most <em>Celebrated School</em></h2>
+      <p class="lead" style="margin:20px 0 26px;">Founded in 1997, Green Hills Academy has grown from 130 learners to one of Africa's most internationally respected schools. We are Rwanda's only full-continuum IB World School — offering an unbroken educational journey from Nursery through Grade 12.</p>
+      <p class="lead" style="margin-bottom:28px;">Our 26-acre campus in Nyarutarama hosts over 2,200 learners from 60+ nationalities, taught by a world-class multinational faculty committed to academic excellence and the whole development of every child.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="about.html" class="btn btn-g">Our Story</a>
+        <a href="admissions.html" class="btn btn-o">Admissions</a>
+      </div>
+    </div>
+
+    <div class="about-carousel reveal">
+      <button class="about-carousel-btn prev" id="aboutPrev" aria-label="Previous image">&#10094;</button>
+      <div class="about-carousel-wrap">
+        <div class="about-carousel-track" id="aboutCarouselTrack">
+          <div class="about-slide"><img src="images/ghacarousel1.jpg" alt="Green Hills Academy carousel image 1"></div>
+          <div class="about-slide"><img src="images/ghacarousel2.jpg" alt="Green Hills Academy carousel image 2"></div>
+          <div class="about-slide"><img src="images/ghacarousel3.jpg" alt="Green Hills Academy carousel image 3"></div>
+          <div class="about-slide"><img src="images/ghacarousel4.jpg" alt="Green Hills Academy carousel image 4"></div>
+          <div class="about-slide"><img src="images/ghacarousel5.jpg" alt="Green Hills Academy carousel image 5"></div>
+          <div class="about-slide"><img src="images/ghacarousel6.jpg" alt="Green Hills Academy carousel image 6"></div>
+          <div class="about-slide"><img src="images/ghacarousel7.jpg" alt="Green Hills Academy carousel image 7"></div>
+          <div class="about-slide"><img src="images/ghacarousel8.jpg" alt="Green Hills Academy carousel image 8"></div>
+        </div>
+      </div>
+      <button class="about-carousel-btn next" id="aboutNext" aria-label="Next image">&#10095;</button>
+
+      <div class="about-carousel-dots" id="aboutCarouselDots">
+        <button class="about-dot active" data-index="0"></button>
+        <button class="about-dot" data-index="1"></button>
+        <button class="about-dot" data-index="2"></button>
+        <button class="about-dot" data-index="3"></button>
+        <button class="about-dot" data-index="4"></button>
+        <button class="about-dot" data-index="5"></button>
+        <button class="about-dot" data-index="6"></button>
+        <button class="about-dot" data-index="7"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--off);">
+  <div class="wrap">
+    <div class="reveal" style="max-width:820px;margin-bottom:28px;">
+      <div class="lbl">IB Curriculum</div>
+      <h2 class="h2">Four Programmes, <em>One Seamless Journey</em></h2>
+      <p class="lead" style="margin-top:18px;">From your child's first day in Nursery to their last day in Grade 12 — an unbroken, world-class IB education on one connected campus.</p>
+    </div>
+    <div class="prog-grid reveal">
+      <a class="prog-card" href="academic.html#pyp"><span class="pc-icon">🌱</span><span class="pc-ages">Nursery – Grade 5</span><span class="pc-title">Primary Years Programme</span><p class="pc-text">Inquiry-based, transdisciplinary learning that ignites curiosity and a love of discovery from the earliest years.</p><span class="pc-link">Explore PYP →</span></a>
+      <a class="prog-card" href="academic.html#myp"><span class="pc-icon">📘</span><span class="pc-ages">Grades 6 – 10</span><span class="pc-title">Middle Years Programme</span><p class="pc-text">Challenging learners to connect subjects to real-world contexts, developing academic depth and global understanding.</p><span class="pc-link">Explore MYP →</span></a>
+      <a class="prog-card" href="academic.html#dp"><span class="pc-icon">🎓</span><span class="pc-ages">Grades 11 – 12</span><span class="pc-title">IB Diploma Programme</span><p class="pc-text">One of the world's most respected pre-university qualifications. GHA graduates enter leading universities worldwide.</p><span class="pc-link">Explore DP →</span></a>
+      <a class="prog-card" href="academic.html#cp"><span class="pc-icon">⚙️</span><span class="pc-ages">Grades 11 – 12</span><span class="pc-title">Career-related Programme</span><p class="pc-text">Blending IB rigour with professional skills — ideal for students with clear career and entrepreneurial ambitions.</p><span class="pc-link">Explore CP →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="qblock">
+  <div class="wrap">
+    <p class="qt">We nurture inquisitive, principled learners who pursue excellence and contribute to a more equitable world.</p>
+    <div class="qa">— GHA Mission Statement</div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="lbl">School Life</div>
+      <h2 class="h2">Life Beyond <em>the Classroom</em></h2>
+      <p class="lead" style="margin:20px 0 18px;">Sport, arts, African dance, robotics, community service and student leadership — at GHA, every learner finds their passion and develops it to the highest level.</p>
+      <p class="lead" style="margin-bottom:18px;">With two swimming pools, a full-size gymnasium, music hall, performing arts theatre, and 40+ clubs, the opportunities are limitless.</p>
+      <p class="lead" style="margin-bottom:28px;">⚽ Football &nbsp; Swimming &nbsp; African Dance &nbsp; Music &nbsp; Robotics</p>
+      <a href="school-life.html" class="btn btn-g">Explore School Life</a>
+    </div>
+    <img class="reveal" src="https://raw.githubusercontent.com/Johnredcorn250/Greenhills-Academy-/main/images/gha-sports.jpg" alt="GHA Sports">
+  </div>
+</section>
+
+<div class="fstrip wrap">
+  <div class="fbox"><span class="fbox-icon">🧪</span><div class="fbox-title">Science Labs</div><div class="fbox-text">Fully equipped Biology, Chemistry, Physics &amp; Environmental Science laboratories.</div></div>
+  <div class="fbox"><span class="fbox-icon">📚</span><div class="fbox-title">Libraries</div><div class="fbox-text">Extensive libraries across all divisions curated to support the full IB curriculum.</div></div>
+  <div class="fbox"><span class="fbox-icon">🏊</span><div class="fbox-title">Two Pools</div><div class="fbox-text">Olympic-standard pools supporting competitive swimming and recreational sport.</div></div>
+  <div class="fbox"><span class="fbox-icon">🏠</span><div class="fbox-title">Boarding</div><div class="fbox-text">Comfortable boarding for Grades 7–12 with 24/7 pastoral care and support.</div></div>
+</div>
+
+<div class="photo-strip" style="margin-top:4px;">
+  <img src="https://raw.githubusercontent.com/Johnredcorn250/Greenhills-Academy-/main/images/gha-students.jpg" alt="GHA Students">
+  <img src="https://raw.githubusercontent.com/Johnredcorn250/Greenhills-Academy-/main/images/swimming.jpg" alt="Swimming">
+  <img src="https://raw.githubusercontent.com/Johnredcorn250/Greenhills-Academy-/main/images/science.jpg" alt="Science">
+  <img src="https://raw.githubusercontent.com/Johnredcorn250/Greenhills-Academy-/main/images/community.jpg" alt="Community">
+</div>
+
+<section class="cta-band">
+  <div class="wrap cta-band-in">
+    <div>
+      <div class="lbl">Join GHA</div>
+      <h2 class="h2">Ready to Join the <em>GHA Family?</em></h2>
+      <p class="lead" style="margin-top:14px;max-width:640px;">Applications for 2025–26 are open. Limited places available across all year groups.</p>
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="https://greenhillsacademy.openapply.com" class="btn btn-gold" target="_blank">Apply Online</a>
+      <a href="admissions.html" class="btn btn-o">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap ft">
+    <div class="fl">
+      <img src="images/ghalogo.jpg" alt="GHA Logo">
+      <span class="fl-name">Green Hills Academy</span>
+      <p class="fl-tag">Nurturing inquisitive, principled learners who pursue excellence and contribute to an equitable world.</p>
+      <div class="fl-ct">
+        <div>KG 278 St, Nyarutarama, Kigali, Rwanda</div>
+        <div>📞 <a href="tel:+250735832348">+250 735 832 348</a></div>
+        <div>✉ <a href="mailto:info@greenhillsacademy.rw">info@greenhillsacademy.rw</a></div>
+        <div>✉ <a href="mailto:admissions@greenhillsacademy.rw">admissions@greenhillsacademy.rw</a></div>
+      </div>
+    </div>
+    <div class="fc">
+      <h4>School</h4>
+      <ul>
+        <li><a href="about.html">About GHA</a></li>
+        <li><a href="about.html#history">Our History</a></li>
+        <li><a href="about.html#campus">Campus &amp; Facilities</a></li>
+        <li><a href="about.html#accreditations">Accreditations</a></li>
+        <li><a href="about.html#leadership">Leadership</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Academic</h4>
+      <ul>
+        <li><a href="academic.html#pyp">PYP Programme</a></li>
+        <li><a href="academic.html#myp">MYP Programme</a></li>
+        <li><a href="academic.html#dp">IB Diploma (DP)</a></li>
+        <li><a href="academic.html#cp">Career-related (CP)</a></li>
+        <li><a href="academic.html#university">University Counselling</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Community</h4>
+      <ul>
+        <li><a href="news.html">News &amp; Events</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="school-life.html#boarding">Boarding</a></li>
+        <li><a href="https://twitter.com/GHA_Rwanda" target="_blank">@GHA_Rwanda</a></li>
+        <li><a href="https://www.facebook.com/GHArwanda" target="_blank">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap fb">
+    <p>© 2024 Green Hills Academy. All rights reserved. Kigali, Rwanda.</p>
+    <div class="fso">
+      <a href="https://twitter.com/GHA_Rwanda" target="_blank">Twitter</a>
+      <a href="https://www.facebook.com/GHArwanda" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/greenhillsacademy.rw/" target="_blank">Instagram</a>
+    </div>
+    <div class="fleg">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Safeguarding</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://greenhillsacademy.openapply.com" class="floating-apply" target="_blank">Apply</a>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navShell = document.getElementById('navShell');
+if (menuToggle && navShell) {
+  menuToggle.addEventListener('click', () => {
+    navShell.classList.toggle('open');
+  });
+}
+const nav = document.getElementById('mn');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) nav.classList.add('sc');
+  else nav.classList.remove('sc');
+});
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('in');
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => io.observe(el));
+
+const aboutTrack = document.getElementById('aboutCarouselTrack');
+const aboutSlides = document.querySelectorAll('.about-slide');
+const aboutPrev = document.getElementById('aboutPrev');
+const aboutNext = document.getElementById('aboutNext');
+const aboutDots = document.querySelectorAll('#aboutCarouselDots .about-dot');
+let aboutIndex = 0;
+
+function updateAboutCarousel(index){
+  if (!aboutTrack) return;
+  aboutTrack.style.transform = `translateX(-${index * 100}%)`;
+  aboutDots.forEach(dot => dot.classList.remove('active'));
+  if (aboutDots[index]) aboutDots[index].classList.add('active');
+}
+
+if (aboutPrev && aboutNext && aboutTrack) {
+  aboutPrev.addEventListener('click', () => {
+    aboutIndex = (aboutIndex - 1 + aboutSlides.length) % aboutSlides.length;
+    updateAboutCarousel(aboutIndex);
+  });
+
+  aboutNext.addEventListener('click', () => {
+    aboutIndex = (aboutIndex + 1) % aboutSlides.length;
+    updateAboutCarousel(aboutIndex);
+  });
+
+  aboutDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      aboutIndex = Number(dot.dataset.index);
+      updateAboutCarousel(aboutIndex);
+    });
+  });
+
+  setInterval(() => {
+    aboutIndex = (aboutIndex + 1) % aboutSlides.length;
+    updateAboutCarousel(aboutIndex);
+  }, 4500);
+}
+</script>
+</body>
+</html>
