@@ -63,7 +63,7 @@ nav.sc{box-shadow:0 4px 24px rgba(0,0,0,.1)}
 .menu-toggle span{display:block;width:24px;height:2px;background:var(--green);margin:5px auto;transition:.25s ease}
 /* HERO */
 .hero{min-height:92vh;background:linear-gradient(135deg,#0d2e1d 0%,#1a4a32 55%,#236040 100%);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
-.hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;} 
+.hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(13,46,29,0.6), rgba(13,46,29,0.9));z-index:1;}
 .hero-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(255,255,255,.02) 80px,rgba(255,255,255,.02) 81px),repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(255,255,255,.02) 80px,rgba(255,255,255,.02) 81px)}
 .hero-content{position:relative;z-index:2;padding:80px 0 72px;color:#fff}
@@ -93,8 +93,9 @@ nav.sc{box-shadow:0 4px 24px rgba(0,0,0,.1)}
 .card-grid{display:grid;gap:2px}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g2{grid-template-columns:repeat(2,1fr)}
+.card-link{text-decoration:none;color:inherit;display:block}
 .card{background:#fff;overflow:hidden;transition:box-shadow .25s,transform .25s;display:flex;flex-direction:column}
-.card:hover{box-shadow:0 8px 36px rgba(0,0,0,.1);transform:translateY(-3px)}
+.card:hover,.card-link:hover .card{box-shadow:0 8px 36px rgba(0,0,0,.1);transform:translateY(-3px)}
 .card-img{height:220px;object-fit:cover;width:100%}
 .card-body{padding:24px 26px 28px;flex:1;display:flex;flex-direction:column}
 .card-cat{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
@@ -271,9 +272,6 @@ footer{background:#0e2a1c;padding:72px 0 0}
   <div class="hero-pattern"></div>
 
   <div class="wrap hero-content">
-  <div class="hero-overlay"></div>
-  <div class="hero-pattern"></div>
-  <div class="wrap hero-content">
     <div class="hero-tag"><span>IB World School · Kigali, Rwanda · Est. 1997</span></div>
     <h1>Where Curious Minds<br>Become <em>Global Leaders</em></h1>
     <p class="hero-lead">Rwanda's only full-continuum IB World School. From Nursery to Grade 12 — one inspiring campus, 2,200+ learners, 60+ nationalities.</p>
@@ -326,53 +324,50 @@ footer{background:#0e2a1c;padding:72px 0 0}
       </div>
       <a href="news.html" class="btn btn-o">All News</a>
     </div>
-   <div class="card-grid g3 reveal">
 
-  <!-- IKIVI FESTIVAL -->
-  <a href="https://www.newtimes.co.rw/article/33650/news/education/photos-first-lady-attends-green-hills-academy-cultural-festival " target="_blank"class="card-link">
-    <article class="card">
-    <img class="card-img" src="images/ikivi.jpg" alt="GHA Rwanda Festival IKIVI">
-    <div class="card-body">
-      <span class="card-cat">Culture & Community</span>
-      <h3 class="card-title">GHA Hosted Rwanda Festival “IKIVI” 2026</h3>
-      <p class="card-text">
-        Green Hills Academy hosted its first ever Rwanda Festival “IKIVI,” celebrating culture, music and dance. The event gained national attention, including attendance by First Lady Jeannette Kagame.
-      </p>
-      <div class="card-date">February 2026</div>
-    </div>
-  </article>
-  </a>
+    <div class="card-grid g3 reveal">
+      <a href="https://www.newtimes.co.rw/article/33650/news/education/photos-first-lady-attends-green-hills-academy-cultural-festival" target="_blank" class="card-link">
+        <article class="card">
+          <img class="card-img" src="images/ikivi.jpg" alt="GHA Rwanda Festival IKIVI">
+          <div class="card-body">
+            <span class="card-cat">Culture & Community</span>
+            <h3 class="card-title">GHA Hosted Rwanda Festival “IKIVI” 2026</h3>
+            <p class="card-text">
+              Green Hills Academy hosted its first ever Rwanda Festival “IKIVI,” celebrating culture, music and dance. The event gained national attention, including attendance by First Lady Jeannette Kagame.
+            </p>
+            <div class="card-date">February 2026</div>
+          </div>
+        </article>
+      </a>
 
-  <!-- COMMUNITY OUTREACH -->
-<a href="https://x.com/SolidAfrica/status/2036050424239653187 target="_blank"class="card-link">
-  <article class="card">
-    <img class="card-img" src="images/outreachsolidafrica.jpg" alt="GHA x Solid Africa">
-    <div class="card-body">
-      <span class="card-cat">Volunteering</span>
-      <h3 class="card-title">GHA students volunteering in providing meal services to hospital patients</h3>
-      <p class="card-text">
-        In partnership with Solid Africa, our students volunteered their time to help provide meal services to hospital patients and donated basic necessities like soaps,sanitary products clothes and more to offer support.
-      </p>
-      <div class="card-date">March 2026</div>
-    </div>
-  </article>
-</a>
+      <a href="https://x.com/SolidAfrica/status/2036050424239653187" target="_blank" class="card-link">
+        <article class="card">
+          <img class="card-img" src="images/outreachsolidafrica.jpg" alt="GHA x Solid Africa">
+          <div class="card-body">
+            <span class="card-cat">Volunteering</span>
+            <h3 class="card-title">GHA students volunteering in providing meal services to hospital patients</h3>
+            <p class="card-text">
+              In partnership with Solid Africa, our students volunteered their time to help provide meal services to hospital patients and donated basic necessities like soaps, sanitary products, clothes and more to offer support.
+            </p>
+            <div class="card-date">March 2026</div>
+          </div>
+        </article>
+      </a>
 
-  <!-- INTERNATIONAL WOMEN'S DAY -->
-  <a href="https://x.com/GHA_rwanda/status/2030545888435659081 " target="_blank"class="card-link">
-     <article class="card">
-    <img class="card-img" src="images/iwd.jpg" alt="International Women's Day at GHA">
-    <div class="card-body">
-      <span class="card-cat">School Life</span>
-      <h3 class="card-title">GHA Marks International Women’s Day 2026</h3>
-      <p class="card-text">
-        The school community celebrated International Women’s Day, recognizing the achievements and impact of women across GHA and beyond.
-      </p>
-      <div class="card-date">March 2026</div>
+      <a href="https://x.com/GHA_rwanda/status/2030545888435659081" target="_blank" class="card-link">
+        <article class="card">
+          <img class="card-img" src="images/iwd.jpg" alt="International Women's Day at GHA">
+          <div class="card-body">
+            <span class="card-cat">School Life</span>
+            <h3 class="card-title">GHA Marks International Women’s Day 2026</h3>
+            <p class="card-text">
+              The school community celebrated International Women’s Day, recognizing the achievements and impact of women across GHA and beyond.
+            </p>
+            <div class="card-date">March 2026</div>
+          </div>
+        </article>
+      </a>
     </div>
-  </article>
-  </a>
-</div>
   </div>
 </section>
 
